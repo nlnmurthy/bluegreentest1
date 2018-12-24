@@ -88,13 +88,13 @@ try {
 
 
 
-	node("ccone-slave") {
+	node() {
 
 	
 
 		
 
-		def tm_services_modules = ["tm-common", "org-management" , "user-management", "smm"]
+		def tm_services_modules = ["devtest1", "devtest2" , "devtest3"]
 
 		def tm_migration_service_modules = ["tenant-migration"]
 
@@ -120,11 +120,11 @@ try {
 
 			checkout scm
 
-			mavenHome = tool(name: 'maven-3.5.0', type: 'maven');
+			mavenHome = tool(name: 'maven 3.6', type: 'maven');
 
 			
 
-			//def GitUils = load("pipeline/GitUils.groovy")
+			//def GitUils = load("pipeline/GitUtils.groovy")
 
 			echo "after gitutils"
 
