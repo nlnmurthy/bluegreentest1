@@ -1,17 +1,5 @@
 #!groovy
 
-
-
-/*def mergePullRequest() {
-
-	step([$class  : "ghprbPullRequestMerge", allowMergewithoutTriggerPhase : false, deleteonMerge : true,
-
-	     disallowOwnCode : false, fallonNonMerge : true, mergeComment : "Merged" , onlyAdminsMerge : false])
-
-}*/
-
-
-
 def setCategory(comment) {
 
     
@@ -31,9 +19,6 @@ def setCategory(comment) {
 }
 
 
-
-
-
 def checkoutCommitHash() {
 
     checkout scm
@@ -49,7 +34,6 @@ def checkoutCommitHash() {
 }
 
 
-
 def getCommitHash() {
 
     def gitCommit = sh(returnStdout: true, script: 'git rev-parse HEAD').trim()
@@ -60,41 +44,13 @@ def getCommitHash() {
 
 
 
-def mergePrToMaster(prNum, prBranch) {
-
-    sshagent([GIT_AUTH]) {
-
-        sh """ git config --global user.email "sunlight.gen@cisco.com" """
-
-        sh """ git config --global user.name "sunlight.gen" """
-
-        sh "git fetch origin"
-
-        sh "git checkout master"
-
-        sh """ git merge --no-ff -m "Merge pull request #$prNum from $prBranch" origin/$prBranch """
-
-        sh "git push origin master"
-
-    }
-
-}
-
-
-
-
-
 try {
 
 
 
 	node() {
 
-	
-
-		
-
-		def tm_services_modules = ["devtest1", "devtest2" , "devtest3"]
+        def tm_services_modules = ["devtest1", "devtest2" , "devtest3"]
 
 		def tm_migration_service_modules = ["tenant-migration"]
 
@@ -222,7 +178,9 @@ try {
 
                 "PATH=${mavenHome}/bin:${env.PATH}"
 
-		])  {
+		])  
+		
+		
 
 			stage ("Build") {
 
@@ -242,29 +200,11 @@ try {
 
 			}
 
-		}
+		
 
 
 
-		/*stage("Merge") {
-
-			currentBuild.result = "SUCCESS"
-
-			if ((category == "services" && ghprbCommentBody.startsWith("TM_MERGE")) | (category == "migration" && ghprbCommentBody.startsWith("TM_MIGRATE") && !ghprbCommentBody.contains("TEST"))) {
-
-				node() {
-
-					checkout scm
-
-					mergePullRequest()
-
-				}
-
-			}
-
-			triggerMasterBuild(commitHash, currentModules,category)
-
-		}*/
+		
 
 	}
 
@@ -281,25 +221,3 @@ catch(error) {
 	throw err
 
 }
-
-
-
-
-
-/*def triggerMasterBuild(commitHash, modules,category) {
-
-    echo "Starting master build pipeline : $modules"
-
-    build job: 'build_master',
-
-            parameters: [
-
-                    string(name: 'BUILD_COMMIT_HASH', value: commitHash),
-
-                    string(name: 'APP_BASE', value: modules)
-
-					string(name: 'CATEGORY', value: category)
-
-            ], propagate: false, wait: false
-
-}*/
