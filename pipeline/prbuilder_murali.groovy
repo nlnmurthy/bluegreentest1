@@ -172,13 +172,13 @@ try {
 
 		}
 
-		withEnv([
+		/*withEnv([
 
                 'MAVEN_HOME=' + mavenHome,
 
                 "PATH=${mavenHome}/bin:${env.PATH}"
 
-		])  
+		])*/  
 		
 		
 
@@ -188,7 +188,8 @@ try {
 
 					dir(module) {
 
-						sh "${mavenHome}/bin/mvn package"
+						def mvnHome = tool name: 'maven 3.6', type: 'maven' 
+                        sh "${mvnHome}/bin/mvn package"
 
 					}
 
