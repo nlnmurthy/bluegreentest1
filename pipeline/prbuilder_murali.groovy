@@ -188,7 +188,7 @@ try {
 
 					dir(module) {
 
-						sh "'${mavenHome}/bin/mvn' clean test"
+						sh "${mavenHome}/bin/mvn package"
 
 					}
 
