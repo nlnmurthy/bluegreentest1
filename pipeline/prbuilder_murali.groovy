@@ -86,11 +86,13 @@ try {
 
 			def commitHash = getCommitHash()
 
-			echo "after commithash"
-
+			echo "after commithash" 
+			echo "Commit hash $commitHash"
+			sh "git diff $commitHash"
 			def changeLogSets = currentBuild.changeSets
 
 			echo "after changesets"
+			echo "changeset $changeLogSets"
 
 			def PRComment = "services"
 
