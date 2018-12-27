@@ -204,14 +204,14 @@ try {
 
 			
 
-                stage('SonarQube analysis') {
+                /*stage('SonarQube analysis') {
 				 def mvnHome = tool name: 'maven 3.6', type: 'maven' 
                 withSonarQubeEnv('sonar-6') {
                 // requires SonarQube Scanner for Maven 3.2+
                
-                        sh "${mvnHome}/bin/mvn package
+                        sh "${mvnHome}/bin/mvn sonar:sonar"
                 }
-             }
+             }*/
 			
 			
 		
