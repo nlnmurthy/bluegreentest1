@@ -202,9 +202,10 @@ try {
 			
 
                 stage('SonarQube analysis') {
-                withSonarQubeEnv('My SonarQube Server') {
+                withSonarQubeEnv('sonar-6') {
                 // requires SonarQube Scanner for Maven 3.2+
-                sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.2:sonar'
+                def mvnHome = tool name: 'maven 3.6', type: 'maven' 
+                        sh "${mvnHome}/bin/mvn package
                 }
              }
 			
