@@ -201,7 +201,12 @@ try {
 
 			
 
-			}
+                stage('SonarQube analysis') {
+                withSonarQubeEnv('My SonarQube Server') {
+                // requires SonarQube Scanner for Maven 3.2+
+                sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.2:sonar'
+                }
+             }
 			
 			
 		
@@ -215,7 +220,7 @@ try {
     final String APP_NAME_PREFIX = 'green-'*/
 
    
-            stage('Preparation') {
+        /*    stage('Preparation') {
 			
 			def mavenHome
             def deploymentUtils
@@ -233,14 +238,22 @@ try {
                     }
                     deploymentUtils.appPackageDeploy(DEPLOYMENT, CF_ORG, CF_SPACE,APP_BASE, APP_NAME, APP_NAME_PREFIX)
                 }
-                currentBuild.result = "SUCCESS"
+                currentBuild.result = "SUCCESS" */
+				
+				
+				
          
     }
+	}
     
+
 catch(error) {
 
 currentBuild.result = "FAILURE"
 
 	throw err
 
-}
+ }
+ 
+ 
+
