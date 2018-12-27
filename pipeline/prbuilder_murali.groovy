@@ -201,36 +201,36 @@ try {
 				}
 				
 				
-			}
+						withSonarQubeEnv('sonar-6') {
+                // requires SonarQube Scanner for Maven 3.2+
+               
+                        sh "${mvnHome}/bin/mvn sonar:sonar"
+                }
+				}
 
 
 
 			
 
-            stage('SonarQube analysis') {
+                /*stage('SonarQube analysis') {
 				//def mvnHome = tool name: 'maven 3.6', type: 'maven'
                 withSonarQubeEnv('sonar-6') {
                 // requires SonarQube Scanner for Maven 3.2+
                
-                        //sh "${mvnHome}/bin/mvn sonar:sonar"
+                        sh "${mvnHome}/bin/mvn sonar:sonar"
 						
 						sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.2:sonar'
                 }
-             }
+             }*/
 			
 			
 		
     
     
-    /*final String APP_NAME = 'org-management'
-    final String APP_BASE = 'org-management'
-    final String CF_ORG = 'tenant-management'
-    final String CF_SPACE = 'app'
-    final String DEPLOYMENT = 'dev'
-    final String APP_NAME_PREFIX = 'green-'*/
+    
 
    
-        /*    stage('Preparation') {
+    /*    stage('Preparation') {
 			
 			def mavenHome
             def deploymentUtils
