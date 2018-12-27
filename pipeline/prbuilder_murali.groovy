@@ -198,13 +198,17 @@ try {
 					
 
 				}
+				}
+
+
 
 			
 
                 stage('SonarQube analysis') {
+				 def mvnHome = tool name: 'maven 3.6', type: 'maven' 
                 withSonarQubeEnv('sonar-6') {
                 // requires SonarQube Scanner for Maven 3.2+
-                def mvnHome = tool name: 'maven 3.6', type: 'maven' 
+               
                         sh "${mvnHome}/bin/mvn package
                 }
              }
