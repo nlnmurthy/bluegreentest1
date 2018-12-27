@@ -236,11 +236,16 @@ try {
                 currentBuild.result = "SUCCESS"
          
     }
+	}
     
+
 catch(error) {
 
 currentBuild.result = "FAILURE"
 
 	throw err
 
-}
+ }
+ 
+ 
+
