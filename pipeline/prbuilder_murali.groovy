@@ -201,11 +201,6 @@ try {
 				}
 				
 				
-						withSonarQubeEnv('sonar-6') {
-                // requires SonarQube Scanner for Maven 3.2+
-               
-                        sh "${mvnHome}/bin/mvn sonar:sonar"
-                }
 				}
 
 
