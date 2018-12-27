@@ -94,7 +94,7 @@ try {
 			echo "after changesets"
 			echo "changeset $changeLogSets"
 
-			def PRComment = "services"
+			def PRComment = ghprbCommentBody
 
 			echo "PRComment printed is $PRComment"
 
@@ -202,21 +202,34 @@ try {
 				
 				
 			}
+		
+		
+		stage("Merge") {
+               timeout(activity: true,time:5,unit:'DAYS')
+             {
+                 input message : 'Merge to Master?'
+              }
+             node() {
+               checkout scm
+               mergePullRequest()
+              }
+             }
 
 
 
 			
 
-            stage('SonarQube analysis') {
+        /*    stage('SonarQube analysis') {
 				//def mvnHome = tool name: 'maven 3.6', type: 'maven'
                 withSonarQubeEnv('sonar-6') {
                 // requires SonarQube Scanner for Maven 3.2+
                
                         //sh "${mvnHome}/bin/mvn sonar:sonar"
 						
-						sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.2:sonar'
+	    sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.2:sonar'
                 }
-             }
+             } */
+	    
 			
 			
 		
