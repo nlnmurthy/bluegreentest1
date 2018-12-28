@@ -4,9 +4,14 @@
 
 def mergePullRequest() {
 
-    step([$class         : 'GhprbPullRequestMerge', allowMergeWithoutTriggerPhrase: false, deleteOnMerge: true,
-
-          disallowOwnCode: false, failOnNonMerge: true, mergeComment: 'Merged', onlyAdminsMerge: false])
+    step([$class: 'GhprbPullRequestMerge', 
+	         allowMergeWithoutTriggerPhrase: true,
+			 deleteOnMerge: true,
+             disallowOwnCode: false, 
+			 failOnNonMerge: true, 
+			 mergeComment: 'Merged', 
+			 onlyAdminsMerge: false
+	     ])
 
 }
 
