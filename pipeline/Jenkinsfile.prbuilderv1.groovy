@@ -1,7 +1,7 @@
 #!groovy
 
 def mergePullRequest() {
-    step([$class         : 'GhprbPullRequestMerge', 
+    step([$class : 'GhprbPullRequestMerge', 
 	allowMergeWithoutTriggerPhrase: false, 
 	deleteOnMerge: true,
     disallowOwnCode: false, 
