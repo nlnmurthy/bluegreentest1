@@ -1,7 +1,7 @@
 #!groovy
 
 def mergePullRequest() {
-    step([$class         : 'GhprbPullRequestMerge', 
+    step([$class : 'GhprbPullRequestMerge', 
 	allowMergeWithoutTriggerPhrase: false, 
 	deleteOnMerge: true,
     disallowOwnCode: false, 
@@ -18,8 +18,8 @@ try {
         def mavenHome
    		def currentDir = pwd()
 		echo "$currentDir"
-		//def GitUtils = load("${currentDir}/utils/GitUtils.groovy")
-		//def MiscUtils = load("${currentDir}/utils/MiscUtils.groovy")
+		def GitUtils = load("${currentDir}/Utils/GitUtils.groovy")
+		def MiscUtils = load("${currentDir}/Utils/MiscUtils.groovy")
 		def commitHash = GitUils.getCommitHash()
 		def changeLogSets = currentBuild.changeSets
 		def currentModules
