@@ -51,7 +51,7 @@ try {
                 }
             }
         }
-        stage('Merge') {
+        /*stage('Merge') {
             currentBuild.result = "SUCCESS"
             if (ghprbCommentBody.startsWith("TM_MERGE")) {
                 node("ccone-slave") {
@@ -59,7 +59,7 @@ try {
                     mergePullRequest()
                 }
             }
-        }
+        }*/
 
     }
 
