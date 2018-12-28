@@ -31,7 +31,7 @@ try {
 			
 			def changedModules = MiscUtils.getModifiedModules(changeLogSets)
 			def category = MiscUtils.getCategory(ghprbCommentBody)
-			currentModules = getCurrentModules(changedModules,category)
+			currentModules = MiscUtils.getCurrentModules(changedModules,category)
 			
         }
         withEnv([
