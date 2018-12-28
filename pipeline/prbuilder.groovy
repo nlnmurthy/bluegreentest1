@@ -16,7 +16,7 @@ try {
 
 
 
-    node("ccone-slave") {
+    node() {
 
 
 
@@ -66,7 +66,7 @@ try {
 
             if (ghprbCommentBody.startsWith("TM_MERGE")) {
 
-                node("ccone-slave") {
+                node() {
 
                     checkout scm
 
