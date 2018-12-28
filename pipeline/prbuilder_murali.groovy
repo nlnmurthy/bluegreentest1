@@ -72,9 +72,7 @@ try {
 
 		stage("Preparation") {
 
-		
-
-			checkout scm
+		    checkout scm
 
 			mavenHome = tool(name: 'maven 3.6', type: 'maven');
 

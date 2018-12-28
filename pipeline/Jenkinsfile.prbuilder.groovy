@@ -20,7 +20,7 @@ try {
 	node() {
 	
 		
-		def tm_services_modules = ["tm-common", "org-management" , "user-management", "smm"]
+		def tm_services_modules = ["devtest1", "devtest2" , "devtest3"]
 		def tm_migration_service_modules = ["tenant-migration"]
 		def foldersChanged = []
 		def serviceFoldersChanged = []
@@ -32,9 +32,9 @@ try {
 		stage("Preparation") {
 		
 			checkout scm
-			//mavenHome = tool(name: 'maven-3.5.0', type: 'maven');
+			mavenHome = tool(name: 'maven 3.6', type: 'maven');
 			def currentDir = pwd()
-			def GitUtils = load("${currentDir}/utils/GitUtils.groovy")
+			//def GitUtils = load("${currentDir}/utils/GitUtils.groovy")
 			def commitHash = GitUtils.getCommitHash()
 			def changeLogSets = currentBuild.changeSets
 			//def PRComment = ghprbCommentBody
