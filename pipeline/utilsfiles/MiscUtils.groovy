@@ -11,9 +11,10 @@ def getCurrentModules(modulesChanged,category) {
 	return currentModules
 	
 }
-
-def getModifiedModules(changeLogSets) {
-
+@NonCPS
+def getModifiedModules(currentBuild) {
+	
+	def changeLogSets = currentBuild.changeSets
 	def modulesChanged = []
 	for(changeSet in changeLogSets ) {
 		for(entry in changeSet.items) {
