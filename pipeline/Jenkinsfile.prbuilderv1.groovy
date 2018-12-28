@@ -28,7 +28,7 @@ try {
 			def MiscUtils = load("${currentDir}/pipeline/utilsfiles/MiscUtils.groovy")
 			def commitHash = GitUtils.getCommitHash()
 			echo "commit hash $commitHash"
-			echo "changeLogSets $changeLogSets"
+			//echo "changeLogSets $changeLogSets"
 			def changedModules = MiscUtils.getModifiedModules(currentBuild)
 			echo "changedModules $changedModules"
 			def category = MiscUtils.getCategory(ghprbCommentBody)
