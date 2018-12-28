@@ -22,7 +22,7 @@ try {
 		
         stage('Clone & Setup') {
             checkout scm
-            mavenHome = tool(name: 'maven-3.5.0', type: 'maven');
+            mavenHome = tool(name: 'maven 3.6', type: 'maven');
 			
 			def GitUtils = load("${currentDir}/pipeline/utilsfiles/GitUtils.groovy")
 			def MiscUtils = load("${currentDir}/pipeline/utilsfiles/MiscUtils.groovy")
