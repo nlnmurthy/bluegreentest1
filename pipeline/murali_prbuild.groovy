@@ -7,17 +7,14 @@ node() {
              stage("Preparation")
 			 {
 			  checkout scm
-              mavenHome = tool(name: 'maven 3.6', type: 'maven');
+              def mavenHome = tool name: 'maven 3.6', type: 'maven'
+			  sh "${mvnHome}/bin/mvn package"
               //def prutils = load("${currentDir}/pipeline/utilsfiles/prutils.groovy")
 
 			}
 			
 			
-			stage ("Build")
-			   {
-             def mavenHome = tool(name: 'maven 3.6', type: 'maven');
-			sh "/bin/mvn package"
-	          }
+			
 	          
    }
 }
