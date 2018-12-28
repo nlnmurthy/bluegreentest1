@@ -17,10 +17,10 @@ try {
 
         def mavenHome
    		
-		sh 'echo pwd'
+		def currentDir = pwd()
 
-		def GitUtils = load("/pipeline/utilsfiles/GitUtils.groovy")
-		def MiscUtils = load("/pipeline/utilsfiles/MiscUtils.groovy")
+		def GitUtils = load("${currentDir}/pipeline/utilsfiles/GitUtils.groovy")
+		def MiscUtils = load("${currentDir}/pipeline/utilsfiles/MiscUtils.groovy")
 		
 		//def GitUtils = load("/pipeline/utilsfiles/GitUtils.groovy")
 		//def MiscUtils = load("/pipeline/utilsfiles/MiscUtils.groovy")
