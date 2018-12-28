@@ -39,6 +39,7 @@ def getServiceModules(modulesChanged) {
 			echo "Service changed : $module"
 			serviceModulesChanged.add(module)
 		}
+	}
 	return serviceModulesChanged
 }
 
@@ -50,6 +51,7 @@ def getMigrationServiceModules(modulesChanged) {
 			echo "Migration Service changed : $module"
 			migrationServiceModulesChanged.add(module)
 		}
+	}
 	return migrationServiceModulesChanged
 }
 
@@ -62,10 +64,5 @@ def getCategory(comment) {
 	    return "services"
 	}
 }
-
-
-
-
-
 
 return this;
