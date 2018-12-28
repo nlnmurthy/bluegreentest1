@@ -27,11 +27,15 @@ try {
 			def GitUtils = load("${currentDir}/pipeline/utilsfiles/GitUtils.groovy")
 			def MiscUtils = load("${currentDir}/pipeline/utilsfiles/MiscUtils.groovy")
 			def commitHash = GitUtils.getCommitHash()
+			echo "commit hash $commitHash"
 			def changeLogSets = currentBuild.changeSets
-			echo "${changeLogSets}"
+			echo "changeLogSets $changeLogSets"
 			def changedModules = MiscUtils.getModifiedModules(changeLogSets)
+			echo "changedModules $changedModules"
 			def category = MiscUtils.getCategory(ghprbCommentBody)
+			echo "category $category"
 			currentModules = MiscUtils.getCurrentModules(changedModules,category)
+			echo "currentModules $currentModules"
 			
         }
         withEnv([
