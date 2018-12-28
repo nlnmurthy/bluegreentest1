@@ -33,8 +33,8 @@ try {
 			echo "currentBuild $currentBuild.changeSets"
 			def changedModules = MiscUtils.getModifiedModules(currentBuild)
 			echo "changedModules $changedModules"
-			def category = MiscUtils.getCategory(ghprbCommentBody)
-			echo "category $category"
+			//def category = MiscUtils.getCategory(ghprbCommentBody)
+			//echo "category $category"
 			currentModules = MiscUtils.getCurrentModules(changedModules,category)
 			echo "currentModules $currentModules"
 			
