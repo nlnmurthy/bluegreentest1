@@ -1,12 +1,4 @@
-environment { 
- EMAIL_RECIPIENTS = 'mkoneti@cisco.com'
- }
-
 @NonCPS
-
-node(){
-stage(changelogsets){
-
 def getChangeString() {
  MAX_MSG_LEN = 100
  def changeString = ""
@@ -28,11 +20,14 @@ def getChangeString() {
  return changeString
 }
 
-def sendEmail(status) {
- mail (
- to: "$EMAIL_RECIPIENTS", 
- subject: "Build $BUILD_NUMBER - " + status + " ($JOB_NAME)", 
- body: "Changes:\n " + getChangeString() + "\n\n Check console output at: $BUILD_URL/console" + "\n")
+node(){
+stage(changelogsets){
+
+def changeinlog = getChangeString()
+echo "change $changeinlog"
 }
 }
-}
+
+
+
+
