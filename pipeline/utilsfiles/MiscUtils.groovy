@@ -32,7 +32,7 @@ def getModifiedModules(changeLogSets) {
 }
 
 def getServiceModules(modulesChanged) {
-	def serviceModules = ["tm-common", "org-management" , "user-management", "smm"]
+	def serviceModules = ["devtest1", "devtest2" , "devtest3",]
 	def serviceModulesChanged = []
 	for(module in modulesChanged.toSet()) {
 		if(servicesModules.contains(module)) {
