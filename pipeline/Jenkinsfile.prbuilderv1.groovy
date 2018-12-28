@@ -18,11 +18,11 @@ try {
         def mavenHome
    		def currentDir = pwd()
 		echo "$currentDir"
-		//def GitUtils = load("{$currentDir}/pipeline/utilsfiles/GitUtils.groovy")
-		//def MiscUtils = load("{$currentDir}/pipeline/utilsfiles/MiscUtils.groovy")
+		def GitUtils = load("{$currentDir}/pipeline/utilsfiles/GitUtils.groovy")
+		def MiscUtils = load("{$currentDir}/pipeline/utilsfiles/MiscUtils.groovy")
 		
-		def GitUtils = load("/pipeline/utilsfiles/GitUtils.groovy")
-		def MiscUtils = load("/pipeline/utilsfiles/MiscUtils.groovy")
+		//def GitUtils = load("/pipeline/utilsfiles/GitUtils.groovy")
+		//def MiscUtils = load("/pipeline/utilsfiles/MiscUtils.groovy")
 		def commitHash = GitUtils.getCommitHash()
 		def changeLogSets = currentBuild.changeSets
 		def currentModules
