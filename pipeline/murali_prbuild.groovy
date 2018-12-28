@@ -1,24 +1,38 @@
-try {
+environment { 
+ EMAIL_RECIPIENTS = 'mkoneti@cisco.com'
+ }
 
-node() {
+@NonCPS
 
-        def currentDir = pwd()
-        echo "before stage preparation"
-             stage("Preparation")
-			 {
-			  checkout scm
-              def mavenHome = tool name: 'maven 3.6', type: 'maven'
-			  sh "${mvnHome}/bin/mvn package"
-              //def prutils = load("${currentDir}/pipeline/utilsfiles/prutils.groovy")
+node(){
+stage(changelogsets){
 
-			}
-			
-			
-			
-	          
-   }
+def getChangeString() {
+ MAX_MSG_LEN = 100
+ def changeString = ""
+
+ echo "Gathering SCM changes"
+ def changeLogSets = currentBuild.changeSets
+ for (int i = 0; i < changeLogSets.size(); i++) {
+ def entries = changeLogSets[i].items
+ for (int j = 0; j < entries.length; j++) {
+ def entry = entries[j]
+ truncated_msg = entry.msg.take(MAX_MSG_LEN)
+ changeString += " - ${truncated_msg} [${entry.author}]\n"
+ }
+ }
+
+ if (!changeString) {
+ changeString = " - No new changes"
+ }
+ return changeString
 }
-catch (error) {
-    currentBuild.result = "FAILURE"
-    throw error
+
+def sendEmail(status) {
+ mail (
+ to: "$EMAIL_RECIPIENTS", 
+ subject: "Build $BUILD_NUMBER - " + status + " ($JOB_NAME)", 
+ body: "Changes:\n " + getChangeString() + "\n\n Check console output at: $BUILD_URL/console" + "\n")
+}
+}
 }
