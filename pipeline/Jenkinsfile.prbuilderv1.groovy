@@ -29,6 +29,7 @@ try {
 			def commitHash = GitUtils.getCommitHash()
 			echo "commit hash $commitHash"
 			//echo "changeLogSets $changeLogSets"
+			echo "currentModules $currentModules"
 			def changedModules = MiscUtils.getModifiedModules(currentBuild)
 			echo "changedModules $changedModules"
 			def category = MiscUtils.getCategory(ghprbCommentBody)
