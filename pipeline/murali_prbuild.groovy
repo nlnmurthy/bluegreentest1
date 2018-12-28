@@ -8,7 +8,7 @@ node() {
 			 {
 			  checkout scm
               mavenHome = tool(name: 'maven 3.6', type: 'maven');
-              //def prutils = load("${currentDir}/pipeline/utilsfiles/prutils.groovy"))
+              def prutils = load("${currentDir}/pipeline/utilsfiles/prutils.groovy")
 
 			}
 	   }
