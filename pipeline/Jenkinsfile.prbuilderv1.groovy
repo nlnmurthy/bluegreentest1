@@ -18,7 +18,7 @@ try {
         def mavenHome
    		def currentDir = pwd()
 		echo "$currentDir"
-		//def GitUtils = load("${currentDir}/utils/GitUtils.groovy")
+		def GitUtils = load("${currentDir}/utils/GitUtils.groovy")
 		def MiscUtils = load("${currentDir}/utils/MiscUtils.groovy")
 		def commitHash = GitUils.getCommitHash()
 		def changeLogSets = currentBuild.changeSets
