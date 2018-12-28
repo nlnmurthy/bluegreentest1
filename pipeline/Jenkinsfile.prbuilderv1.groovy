@@ -17,6 +17,8 @@ try {
 
         def mavenHome
    		
+		sh 'echo pwd'
+
 		def GitUtils = load("/pipeline/utilsfiles/GitUtils.groovy")
 		def MiscUtils = load("/pipeline/utilsfiles/MiscUtils.groovy")
 		
