@@ -3,7 +3,7 @@ node(){
 
    
      def command = "git --version"
-def proc = command.execute()
+def proc = ll.execute()
 proc.waitFor()              
 
 println "Process exit code: ${proc.exitValue()}"
