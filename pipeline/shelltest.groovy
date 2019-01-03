@@ -1,6 +1,6 @@
 node(){
 
-stage(shellexe){
+
    
      def command = "git --version"
 def proc = command.execute()
@@ -12,4 +12,4 @@ println "Std Out: ${proc.in.text}"
 
 }
 
-}
+
