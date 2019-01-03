@@ -1,6 +1,6 @@
 node{
    stage('SCM Checkout'){
-     git https://github.com/muraliphani/bluegreentest1.git
+    checkout scm
    }
    stage('Compile-Package'){
       // Get maven home path
