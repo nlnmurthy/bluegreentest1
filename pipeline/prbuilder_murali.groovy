@@ -222,7 +222,7 @@ try {
 	stack: '',
 	timeout: '60',
 	value: 'jenkinsConfig',
-	appPath: 'target/devtest1.war',
+	appPath: 'target/${currentModules}',
 	]
     )
 }
