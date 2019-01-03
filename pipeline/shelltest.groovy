@@ -1,6 +1,6 @@
 node(){
 
-dir ('/pipeline') { 
+dir ('pipeline') { 
     sh('test.sh')
 } 
 
