@@ -1,6 +1,6 @@
 node(){
 
-stage(shell exe){
+stage(shellexe){
    
      sh """
             pwd
