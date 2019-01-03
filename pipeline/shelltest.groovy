@@ -3,7 +3,7 @@ node{
     checkout scm
 	
 	dir ('pipeline') { 
-    sh('sudo ./test.sh')
+    sh('./test.sh')
 } 
    }
    
