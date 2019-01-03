@@ -202,32 +202,19 @@ try {
 				}
 
 
-    stage('Deploy')
-   {
-    pushToCloudFoundry (
-	cloudSpace: 'app', 
-	credentialsId: '055c0169-171d-47a7-b6fd-0fb0fcd5a694', 
-	organization: 'tenant-management', 
-    target: 'https://api.run.pivotal.io',
-    manifestChoice:[
-	appName: 'pipelo',
-	appPath: '',
-	buildpack: '',
-	command: '',
-	domain: '',
-	hostname: '',
-	instances: '1', 
-	memory: '',
-	noRoute: 'false',
-	stack: '',
-	timeout: '60',
-	value: 'jenkinsConfig',
-	appPath: 'target/devtest1.war',
-	]
-    )
-}
+
 			
 
+                /*stage('SonarQube analysis') {
+				//def mvnHome = tool name: 'maven 3.6', type: 'maven'
+                withSonarQubeEnv('sonar-6') {
+                // requires SonarQube Scanner for Maven 3.2+
+               
+                        sh "${mvnHome}/bin/mvn sonar:sonar"
+						
+						sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.2:sonar'
+                }
+             }*/
 			
 			
 		

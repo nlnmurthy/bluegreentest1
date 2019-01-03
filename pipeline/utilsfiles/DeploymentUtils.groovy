@@ -1,4 +1,16 @@
 #!groovy
+
+
+def genProperties() {
+	
+	
+			Properties props = new Properties()
+			File propsFile = new File('C://Users/mkoneti/eclipse-workspace/bluegreentestv1/pipeline/properties/CF_Details.properties')
+			props.load(propsFile.newDataInputStream())
+			return props;
+	
+		}
+		
 def runDeployScript(datacenter, cfOrg, cfSpace, appBase, appName, appNamePrefix) {
     withTMVaultCredentials(datacenter) {
         sh """
