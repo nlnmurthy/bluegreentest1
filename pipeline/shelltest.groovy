@@ -1,7 +1,7 @@
 node(){
 
 dir ('pipeline') { 
-    sh('test.sh')
+    sh('./test.sh')
 } 
 
 }
