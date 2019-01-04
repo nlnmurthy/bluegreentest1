@@ -50,7 +50,7 @@ try {
 
 	node() {
 
-        def tm_services_modules = ["devtest1", "devtest2" , "devtest3"]
+        def tm_services_modules = []
 
 		def tm_migration_service_modules = ["tenant-migration"]
 
@@ -202,7 +202,7 @@ try {
 				}
 
 
-    stage('Deploy')
+  /* stage('Deploy')
    {
     pushToCloudFoundry (
 	cloudSpace: 'app', 
@@ -225,7 +225,7 @@ try {
 	appPath: 'target/${currentModules}',
 	]
     )
-}
+}*/
 			
 
 			
