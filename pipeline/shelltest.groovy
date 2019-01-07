@@ -1,7 +1,14 @@
 node{
    stage('SCM Checkout'){
     checkout scm
-	echo "hello team"
+	
+	sh """
+	
+	   cd build
+	   ./test.sh
+	   
+	   """
+	   
 	
 } 
    }
