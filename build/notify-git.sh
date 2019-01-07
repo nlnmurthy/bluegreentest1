@@ -1,7 +1,7 @@
 #!/bin/sh
 
-notfiyGit()
-{
+
+
     : '
     Sends curl request to GitHub to notify about build stages progress
     Pass data in tis argument order only
@@ -35,7 +35,7 @@ notfiyGit()
     echo $API_URL
     echo curl -u "$GITHUB_USERNAME:$GITHUB_ACCESS_TOKEN" -X POST -d  "[\"$MESSAGE\"]" "$API_URL"
     curl -u "$GITHUB_USERNAME:$GITHUB_ACCESS_TOKEN" -X POST -d  "[\"$MESSAGE\"]" "$API_URL"
-}
+
 # notfiyGit "shashanp" "c2227ae0a98cc911d5c89007842d4a31a8ca743d" "https://sqbu-github.cisco.com" "shashanp" "test-trigger-project" 2 "this works i guess"
 
 
