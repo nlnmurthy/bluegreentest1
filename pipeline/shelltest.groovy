@@ -8,7 +8,7 @@ def sout = new StringBuffer(), serr = new StringBuffer()
 	
 	   """
 	
-    def proc ='./test.sh'.execute()
+    def proc ='./test.sh'.execute(
 
     proc.consumeProcessOutput(sout, serr)
     proc.waitForOrKill(1000)
