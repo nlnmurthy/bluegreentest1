@@ -6,7 +6,7 @@ node{
    
  dir('build'){
  
-   sh('./test.sh')
+   sh('chmod +x ./test.sh')
  
  }
  }
