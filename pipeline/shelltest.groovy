@@ -6,8 +6,8 @@ node{
    
  dir('build'){
  
-   sh('chmod +x test.sh')
-   sh('./test.sh')
+   sh('chmod +x notify-git.sh')
+   sh('./notify-git.sh')
  
  }
  }
