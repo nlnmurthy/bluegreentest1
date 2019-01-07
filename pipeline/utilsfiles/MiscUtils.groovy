@@ -11,9 +11,10 @@ def getCurrentModules(modulesChanged,category) {
 	return currentModules
 	
 }
-
-def getModifiedModules(changeLogSets) {
-
+@NonCPS
+def getModifiedModules(currentBuild) {
+	
+	def changeLogSets = currentBuild.changeSets
 	def modulesChanged = []
 	for(changeSet in changeLogSets ) {
 		for(entry in changeSet.items) {
@@ -32,7 +33,7 @@ def getModifiedModules(changeLogSets) {
 }
 
 def getServiceModules(modulesChanged) {
-	def serviceModules = ["tm-common", "org-management" , "user-management", "smm"]
+	def serviceModules = ["devtest1", "devtest2" , "devtest3",]
 	def serviceModulesChanged = []
 	for(module in modulesChanged.toSet()) {
 		if(servicesModules.contains(module)) {

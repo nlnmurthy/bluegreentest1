@@ -27,11 +27,16 @@ try {
 			def GitUtils = load("${currentDir}/pipeline/utilsfiles/GitUtils.groovy")
 			def MiscUtils = load("${currentDir}/pipeline/utilsfiles/MiscUtils.groovy")
 			def commitHash = GitUtils.getCommitHash()
-			def changeLogSets = currentBuild.changeSets
-			
-			def changedModules = MiscUtils.getModifiedModules(changeLogSets)
-			def category = MiscUtils.getCategory(ghprbCommentBody)
-			currentModules = getCurrentModules(changedModules,category)
+			echo "commit hash $commitHash"
+			//echo "changeLogSets $changeLogSets"
+			echo "currentBuild $currentBuild"
+			echo "currentBuild $currentBuild.changeSets"
+			def changedModules = MiscUtils.getModifiedModules(currentBuild)
+			echo "changedModules $changedModules"
+			//def category = MiscUtils.getCategory(ghprbCommentBody)
+			//echo "category $category"
+			currentModules = MiscUtils.getCurrentModules(changedModules,category)
+			echo "currentModules $currentModules"
 			
         }
         withEnv([
@@ -46,7 +51,7 @@ try {
                 }
             }
         }
-        stage('Merge') {
+        /*stage('Merge') {
             currentBuild.result = "SUCCESS"
             if (ghprbCommentBody.startsWith("TM_MERGE")) {
                 node("ccone-slave") {
@@ -54,7 +59,7 @@ try {
                     mergePullRequest()
                 }
             }
-        }
+        }*/
 
     }
 
