@@ -7,12 +7,11 @@ def sout = new StringBuffer(), serr = new StringBuffer()
 	cd build
 	
 	   """
-	
-    def proc ='./test.sh'.execute()
 
-    proc.consumeProcessOutput(sout, serr)
-    proc.waitForOrKill(1000)
-    println sout
+def proc = 'ls /build/test.sh'.execute()
+proc.consumeProcessOutput(sout, serr)
+proc.waitForOrKill(1000)
+println "out> $sout err> $serr"
 	   
 	
 } 
