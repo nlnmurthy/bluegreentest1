@@ -78,7 +78,7 @@ try {
 
 			
 
-			//def GitUils = load("pipeline/GitUtils.groovy")
+			def GitUtils = load("pipeline/GitUtils.groovy")
 
 			echo "after gitutils"
 
