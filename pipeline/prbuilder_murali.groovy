@@ -70,7 +70,7 @@ try {
 
 			
 
-		stage("Preparation") {
+		stage("checkoutSCM") {
 
 		    checkout scm
 
