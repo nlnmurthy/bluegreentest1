@@ -70,7 +70,7 @@ try {
 
 			
 
-		stage("Preparation") {
+		stage("checkoutSCM") {
 
 		    checkout scm
 
@@ -78,7 +78,7 @@ try {
 
 			
 
-			//def GitUils = load("pipeline/GitUtils.groovy")
+			def GitUtils = load("pipeline/GitUtils.groovy")
 
 			echo "after gitutils"
 

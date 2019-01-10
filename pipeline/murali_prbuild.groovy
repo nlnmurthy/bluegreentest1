@@ -22,6 +22,7 @@ def getChangeString() {
 
 node(){
 stage(changelogsets){
+checkout scm
 echo "Gathering SCM changes"
  def changeLogSets = currentBuild.changeSets
  echo "change $changeLogSets"
