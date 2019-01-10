@@ -170,7 +170,7 @@ try
 				    echo "APP_BASE $APP_BASE"
 					
 					def APP_NAME = "${APP_BASE}"
-					dir(APP_BASE)
+					
 					
 				   
 				   pushToCloudFoundry(
@@ -178,7 +178,7 @@ try
                    organization: 'tenant-management',
                    cloudSpace: 'app',
                    credentialsId: '055c0169-171d-47a7-b6fd-0fb0fcd5a694',
-                   manifestChoice: [manifestFile: 'manifest.yml']
+                   manifestChoice: [manifestFile: 'devtest1/manifest.yml']
                    )
 				   
 				  }
