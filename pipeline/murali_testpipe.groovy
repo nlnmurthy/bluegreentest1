@@ -28,7 +28,7 @@ try
 
 {
 
-	node("ccone-slave") 
+	node() 
 
 	{	
        def DEPLOYMENT
