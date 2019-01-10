@@ -116,6 +116,9 @@ set +xv
 cf login -u ${cf_username} -p ${cf_password} -a ${cf_api_endpoint} -o ${org_name} -s ${space_name}
 set -exv
 
-cf push ${app_name_prefix}$app -f $app_base/$YAML_FILE -b $buildpack_url
+echo "${app_name_prefix}$app"
+echo "$app_base/$YAML_FILE"
+echo "$buildpack_url"
+# cf push ${app_name_prefix}$app -f $app_base/$YAML_FILE -b $buildpack_url
 
 exit 0
