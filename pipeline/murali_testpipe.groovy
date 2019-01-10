@@ -158,7 +158,7 @@ try
 
 						{
 							echo "breaking in ut $module"
-							sh "'${mavenHome}/bin/mvn' mvn package -Dmaven.test.skip=true"
+							sh "'${mavenHome}/bin/mvn' clean package -Dmaven.test.skip=true"
 
 						}
                   
