@@ -170,12 +170,16 @@ try
 				    echo "APP_BASE $APP_BASE"
 					
 					def APP_NAME = "${APP_BASE}"
+					dir(APP_BASE)
 					
-					DEPLOYMENT ='devus1'
-					CF_ORG ='tenant-management'
-					CF_SPACE='app'
-					APP_NAME_PREFIX='green-'
-				   DeploymentUtils.runDeployScript(DEPLOYMENT, CF_ORG, CF_SPACE,APP_BASE, APP_NAME, APP_NAME_PREFIX)
+				   
+				   pushToCloudFoundry(
+                   target: 'https://api.run.pivotal.io',
+                   organization: 'tenant-management',
+                   cloudSpace: 'app',
+                   credentialsId: '055c0169-171d-47a7-b6fd-0fb0fcd5a694',
+                   manifestChoice: [manifestFile: 'manifest.yml']
+                   )
 				   
 				  }
 				   
