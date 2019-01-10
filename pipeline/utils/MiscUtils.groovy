@@ -76,7 +76,7 @@ def getServiceModules(modulesChanged)
 
 {
 
-	def serviceModules = ["tm-common", "org-management" , "user-management", "smm"]
+	def serviceModules = ["devtest1", "devtest2" , "devtest3"]
 
 	def serviceModulesChanged = []
 
