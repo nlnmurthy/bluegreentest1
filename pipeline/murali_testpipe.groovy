@@ -167,7 +167,7 @@ try
                    organization: 'tenant-management',
                    cloudSpace: 'app',
                    credentialsId: '055c0169-171d-47a7-b6fd-0fb0fcd5a694',
-                   manifestChoice: [manifestFile: '${module}/manifest.yml']
+                   manifestChoice: [manifestFile: 'module/manifest.yml']
                    )
 
 						}
