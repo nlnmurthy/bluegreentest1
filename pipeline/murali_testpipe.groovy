@@ -159,30 +159,23 @@ try
 						{
 							echo "breaking in ut $module"
 							sh "'${mavenHome}/bin/mvn' clean package -Dmaven.test.skip=true"
-
-						}
-                  
-				   }
-				   
-				   for(APP_BASE in currentModules)
-				   {
-				 
-				    echo "APP_BASE $APP_BASE"
-					
-					def APP_NAME = "${APP_BASE}"
-					
-					
-				   
+							
+							
+							
 				   pushToCloudFoundry(
                    target: 'https://api.run.pivotal.io',
                    organization: 'tenant-management',
                    cloudSpace: 'app',
                    credentialsId: '055c0169-171d-47a7-b6fd-0fb0fcd5a694',
-                   manifestChoice: [manifestFile: 'devtest1/manifest.yml']
+                   manifestChoice: [manifestFile: '$module/manifest.yml']
                    )
+
+						}
+						
+                  
+				   }
 				   
-				  }
-				   
+				  
 				  
 		
 		     
