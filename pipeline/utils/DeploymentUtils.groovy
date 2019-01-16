@@ -8,6 +8,7 @@ def genProperties() {
 			File propsFile = new File('pipeline/properties/CF_Details.properties')
 			props.load(propsFile.newDataInputStream())
 			return props;
+			
 	
 		}
 		
