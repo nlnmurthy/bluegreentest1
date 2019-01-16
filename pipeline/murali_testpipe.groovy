@@ -175,7 +175,7 @@ try
 					   cd ..
 					   cd build
 				       chmod +x appdeploy.sh
-					   ./appdeploy.sh -a "$app"
+					   ./appdeploy.sh
 					     """
 
 						

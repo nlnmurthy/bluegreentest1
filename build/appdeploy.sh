@@ -8,7 +8,8 @@
   #      ;;
  #   esac
 #done
-cf app devtest1 >> cfappdetails.yml
+cf login -a https://api.run.pivotal.io -u muralikoneti25@gmail.com -p Planttree_835
+cf app devtest1-t >> cfappdetails.yml
 cat cfappdetails.yml
 HOST="$(awk '{if (NR==7) print$2}' cfappdetails.yml)"
 echo "$HOST"
