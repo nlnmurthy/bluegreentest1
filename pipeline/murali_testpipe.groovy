@@ -169,14 +169,17 @@ try
                    credentialsId: '055c0169-171d-47a7-b6fd-0fb0fcd5a694',
                    manifestChoice: [manifestFile: 'manifest.yml']
                    )
-				   
-				       dir(build)
+				      def app ="$module"
+				       
 					   sh """
+					   cd ..
+					   cd build
 				       chmod +x appdeploy.sh
-					   ./appdeploy.sh -a "$appname"
+					   ./appdeploy.sh -a "$app"
 					     """
 
-						}
+						
+					}
 						
                   
 				   }
