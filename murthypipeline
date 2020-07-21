@@ -4,4 +4,9 @@ checkout scm
 sh "pwd"
 sh "ls -l" 
 }
+stage("build mvn"){
+def directory = "devtest1"
+ dir(directory){
+ sh "mvn package"
+ }
 }
