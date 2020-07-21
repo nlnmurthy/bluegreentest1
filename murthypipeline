@@ -9,4 +9,5 @@ def directory = "devtest1"
  dir(directory){
  sh "mvn package"
  }
+ }
 }
