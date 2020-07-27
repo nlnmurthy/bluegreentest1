@@ -14,9 +14,9 @@ def directory = "devtest1"
  withAWS(credentials: 'awscredentials', region: 'us-east-1') {
     // some block
     s3Upload acl: 'Private', bucket: 'murthynln', cacheControl: '',
-file: 'devtest1.war ,
+     file: 'devtest1.war ,
     path: '/var/lib/jenkins/workspace/murthypipeline/devtest1/target/devtest1.war', 
-     workingDir: '/var/lib/jenkins/workspace/murthypipeline/'
+     workingDir: '/var/lib/jenkins/workspace/murthypipeline'
 }}
  
  }
