@@ -15,7 +15,7 @@ def directory = "devtest1"
     // some block
     s3Upload acl: 'Private', bucket: 'murthynln', cacheControl: '',
     file: 'devtest1.war',
-    path: 'var/lib/jenkins/workspace/murthypipeline/devtest1/devtest1.war ',
+    path: '/var/lib/jenkins/workspace/murthypipeline/devtest1/target/devtest1.war',
      workingDir: '/var/lib/jenkins/workspace/murthypipeline'
 }}
  
