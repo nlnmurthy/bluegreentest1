@@ -10,4 +10,13 @@ def directory = "devtest1"
  sh "mvn package"
  }
  }
+ stage("upload"){
+ withAWS(credentials: 'awscredentials', region: 'us-east-1') {
+    // some block
+    s3Upload acl: 'Private', bucket: 'murthynln', cacheControl: '',
+    excludePathPattern: '',file: 'devtest1.war [', includePathPattern: '', metadatas: [''],
+    path: '/var/lib/jenkins/workspace/murthypipeline/devtest1/target', 
+    redirectLocation: '', sseAlgorithm: '', text: '', workingDir: '/var/lib/jenkins/workspace/murthypipeline/'
+}}
+ 
  }
